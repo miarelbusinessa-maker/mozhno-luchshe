@@ -57,12 +57,12 @@ export default function Hero() {
         </Reveal>
         <Reveal delay={0.1}>
           <Image
-            src="/media/hero-calm-morning.jpg"
+            src="/media/hero-calm-morning.webp"
             alt="Женщина спокойно пьёт чай у окна утром"
-            width={1600}
-            height={1067}
+            width={1320}
+            height={990}
             priority
-            className="aspect-[4/3] w-full rounded-card object-cover object-left"
+            className="aspect-[4/3] w-full rounded-card object-cover"
           />
         </Reveal>
       </div>

@@ -41,8 +41,8 @@ export default function Team() {
       </Reveal>
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {TEAM.map((person, i) => (
-          <Reveal key={person.name} delay={i * 0.06}>
-            <li className="h-full rounded-card bg-sage p-6">
+          <li key={person.name} className="h-full">
+            <Reveal className="h-full rounded-card bg-sage p-6" delay={i * 0.06}>
               <span
                 aria-hidden="true"
                 className="flex h-14 w-14 items-center justify-center rounded-full bg-olive text-lg font-semibold text-cream"
@@ -54,8 +54,8 @@ export default function Team() {
                 {person.role}
               </p>
               <p className="mt-2 text-[15px] text-moss">{person.line}</p>
-            </li>
-          </Reveal>
+            </Reveal>
+          </li>
         ))}
       </ul>
     </section>

@@ -22,7 +22,7 @@ function CheckIcon() {
 
 const BLOCKS = [
   {
-    image: "/media/product-ai-mentor.jpg",
+    image: "/media/product-ai-mentor.webp",
     alt: "Женщина отдыхает на диване и переписывается с наставником в телефоне",
     title: "Наставник, который всегда на связи",
     text: "План — это только начало. Наставник отвечает на вопросы, перестраивает программу, когда меняются обстоятельства, и поддерживает, когда хочется всё бросить.",
@@ -34,7 +34,7 @@ const BLOCKS = [
     imageLeft: true,
   },
   {
-    image: "/media/product-gamification.jpg",
+    image: "/media/product-gamification.webp",
     alt: "Две подруги идут по осеннему парку с ковриками для йоги",
     title: "Мотивация, встроенная в процесс",
     text: "Сила воли — ненадёжный ресурс, поэтому прогресс устроен как игра. Маленькие победы заметны каждый день, и к ним хочется возвращаться.",
@@ -58,7 +58,7 @@ export default function Product() {
               <Image
                 src={block.image}
                 alt={block.alt}
-                width={1600}
+                width={1200}
                 height={900}
                 className={`aspect-[4/3] w-full rounded-card object-cover ${
                   block.imageLeft ? "" : "md:order-2"

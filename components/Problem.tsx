@@ -1,3 +1,5 @@
+import Link from "next/link";
+import causes from "@/content/causes.json";
 import Reveal from "./Reveal";
 
 const STATS = [
@@ -45,6 +47,23 @@ export default function Problem() {
           По результатам 30+ проблемных интервью, проведённых командой
           в 2024 году.
         </p>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2">
+          {causes.home.map((cause, i) => (
+            <Reveal key={cause.title} delay={i * 0.06}>
+              <div className="h-full rounded-card bg-cream p-6">
+                <h3 className="text-lg font-semibold">{cause.title}</h3>
+                <p className="mt-2 text-[15px]">{cause.what}</p>
+                <p className="mt-2 text-[15px] text-moss">{cause.why}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Link
+          href={causes.link.href}
+          className="mt-2 inline-block rounded-card font-semibold text-olive-deep underline-offset-4 hover:underline"
+        >
+          {causes.link.label} →
+        </Link>
       </div>
     </section>
   );

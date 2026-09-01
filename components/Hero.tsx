@@ -28,7 +28,7 @@ const FEATURES = [
 
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-site px-4 pb-section pt-12 sm:px-6 md:pt-20">
+    <section id="hero" className="mx-auto max-w-site px-4 pb-section pt-12 sm:px-6 md:pt-20">
       <div className="grid items-center gap-10 md:grid-cols-[1.15fr_1fr] md:gap-14">
         <Reveal>
           <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight lg:text-[2.75rem]">

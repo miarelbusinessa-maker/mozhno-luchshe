@@ -35,8 +35,8 @@ export default function HowItWorks() {
         <ol className="mt-12 grid gap-8 md:grid-cols-4 md:gap-6">
           {STEPS.map((step, i) => (
             <li key={step.title} className="relative flex gap-5 md:block">
-              {/* Тонкая соединительная линия между шагами: на десктопе
-                  горизонтальная, на мобильном вертикальная в левой колонке */}
+              {/* Тонкая соединительная линия между шагами: на десктопе
+                  горизонтальная, на мобильном вертикальная в левой колонке */}
               {i < STEPS.length - 1 && (
                 <span
                   aria-hidden="true"

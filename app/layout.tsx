@@ -9,7 +9,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mozhno-luchshe.vercel.app"),
+  metadataBase: new URL("https://mozhno-luchshe-production.up.railway.app"),
   title: "Можно Лучше — ИИ-наставник и игровые механики для здоровых привычек",
   description:
     "«Можно Лучше» помогает выстроить заботу о себе: персональный план, понятные ежедневные задачи и игровые механики, которые поддерживают интерес. Концепция продукта и демонстрационная работа.",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Можно Лучше — модификация образа жизни",
     description:
       "ИИ-наставник, персональный план и игровые механики, которые помогают здоровым привычкам прижиться.",
-    url: "https://mozhno-luchshe.vercel.app",
+    url: "https://mozhno-luchshe-production.up.railway.app",
     siteName: "Можно Лучше",
     locale: "ru_RU",
     type: "website",

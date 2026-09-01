@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Reveal from "./Reveal";
 
 const FEATURES = [
@@ -56,14 +55,17 @@ export default function Hero() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <Image
-            src="/media/hero-calm-morning.webp"
-            alt="Женщина спокойно пьёт чай у окна утром"
-            width={1320}
-            height={990}
-            priority
-            className="aspect-[4/3] w-full rounded-card object-cover"
-          />
+          <video
+            className="aspect-video w-full rounded-card bg-sage"
+            controls
+            playsInline
+            preload="none"
+            poster="/media/promo-poster.webp"
+            aria-label="Видеопрезентация сервиса «Можно Лучше»"
+          >
+            <source src="/media/promo.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
         </Reveal>
       </div>
 

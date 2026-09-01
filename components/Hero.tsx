@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import YouTubeEmbed from "./YouTubeEmbed";
 
 const FEATURES = [
   {
@@ -55,17 +56,11 @@ export default function Hero() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <video
-            className="aspect-video w-full rounded-card bg-sage"
-            controls
-            playsInline
-            preload="none"
+          <YouTubeEmbed
+            videoId="WZRxWFm1hR4"
+            title="Можно Лучше — модификация образа жизни"
             poster="/media/promo-poster.webp"
-            aria-label="Видеопрезентация сервиса «Можно Лучше»"
-          >
-            <source src="/media/promo.mp4" type="video/mp4" />
-            Ваш браузер не поддерживает видео.
-          </video>
+          />
         </Reveal>
       </div>
 

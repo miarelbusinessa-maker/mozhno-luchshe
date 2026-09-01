@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
-  { href: "#how", label: "Как это работает" },
-  { href: "#program", label: "Программа" },
-  { href: "#team", label: "О нас" },
+  { href: "/#how", label: "Как это работает" },
+  { href: "/#program", label: "Программа" },
+  { href: "/#mechanics", label: "Механики" },
+  { href: "/#team", label: "О нас" },
 ];
 
 export default function Header() {
@@ -27,7 +28,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-sage bg-cream/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-site items-center justify-between gap-4 px-4 sm:px-6">
         <Link
-          href="#top"
+          href="/#top"
           className="flex shrink-0 items-center rounded-card"
           aria-label="Можно Лучше — к началу страницы"
         >
@@ -42,27 +43,27 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:block" aria-label="Основная навигация">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-7">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="rounded-card text-[15px] font-medium text-moss transition-colors hover:text-olive-deep"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#test"
+          <Link
+            href="/#test"
             className="hidden rounded-card bg-olive-deep px-5 py-2.5 text-[15px] font-semibold text-cream transition-colors hover:bg-olive-dark sm:inline-block"
           >
             Пройти тест
-          </a>
+          </Link>
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-card text-ink md:hidden"
@@ -100,23 +101,23 @@ export default function Header() {
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="block rounded-card px-2 py-3 font-medium text-ink hover:bg-sage"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li>
-              <a
-                href="#test"
+              <Link
+                href="/#test"
                 className="mt-2 block rounded-card bg-olive-deep px-4 py-3 text-center font-semibold text-cream"
                 onClick={() => setMenuOpen(false)}
               >
                 Пройти тест
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Answers,
-  buildPlan,
   EMPTY_ANSWERS,
+  getProfile,
   QUESTIONS,
+  RESULT_DISCLAIMER,
 } from "@/lib/quiz";
 import Reveal from "./Reveal";
 
@@ -68,7 +69,7 @@ export default function Quiz() {
     }
   }
 
-  const plan = isFinished ? buildPlan(answers) : null;
+  const profile = isFinished ? getProfile(answers) : null;
 
   return (
     <section id="test" className="mx-auto max-w-site scroll-mt-20 px-4 py-section sm:px-6">
@@ -150,38 +151,41 @@ export default function Quiz() {
           </div>
         )}
 
-        {isFinished && plan && (
+        {isFinished && profile && (
           <div>
-            <p className="text-sm font-medium text-moss">Черновик готов</p>
-            <h3 className="mt-2 text-xl font-semibold sm:text-2xl">
-              С этого ваша программа могла бы начаться
+            <p className="text-sm font-medium text-moss">Ваш профиль</p>
+            <h3 className="mt-2 text-2xl font-semibold sm:text-3xl">
+              {profile.name}
             </h3>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {[
-                { title: "Фокус", text: plan.focus },
-                { title: "Ритм недели", text: plan.rhythm },
-                { title: "Первая задача", text: plan.firstTask },
-              ].map((card) => (
-                <div key={card.title} className="rounded-card bg-cream p-6">
-                  <h4 className="font-semibold text-olive-deep">
-                    {card.title}
-                  </h4>
-                  <p className="mt-2 text-[15px] text-ink">{card.text}</p>
+            <p className="mt-4 max-w-prose">{profile.description}</p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {profile.steps.map((step, i) => (
+                <div key={step} className="rounded-card bg-cream p-6">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-olive-deep">
+                    Шаг {i + 1}
+                  </p>
+                  <p className="mt-2 text-[15px]">{step}</p>
                 </div>
               ))}
             </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="https://t.me/miar_in"
+                className="rounded-card bg-olive-deep px-6 py-3.5 font-semibold text-cream transition-colors hover:bg-olive-dark"
+              >
+                Написать нам в Telegram
+              </a>
+              <button
+                type="button"
+                onClick={restart}
+                className="rounded-card border border-olive px-6 py-3.5 font-semibold text-olive-deep transition-colors hover:bg-cream"
+              >
+                Пройти заново
+              </button>
+            </div>
             <p className="mt-6 max-w-prose text-sm text-moss">
-              Это иллюстрация будущего продукта: план собран из готовых
-              заготовок по вашим ответам. В полной версии программу строит
-              и ведёт ИИ-наставник.
+              {RESULT_DISCLAIMER}
             </p>
-            <button
-              type="button"
-              onClick={restart}
-              className="mt-6 rounded-card border border-olive px-6 py-3 font-semibold text-olive-deep transition-colors hover:bg-cream"
-            >
-              Пройти заново
-            </button>
           </div>
         )}
       </div>

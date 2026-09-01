@@ -52,47 +52,19 @@ export type Answers = (number | null)[];
 
 export const EMPTY_ANSWERS: Answers = QUESTIONS.map(() => null);
 
-const FOCUS_BY_GOAL = [
-  "Энергия и режим дня: сон, движение и паузы, которые возвращают силы.",
-  "Форма: ровный ритм тренировок и питания, без крайностей и марафонов.",
-  "Дисциплина: простой распорядок, который со временем держится сам.",
-  "Самочувствие: привычки, которые бережно поддерживают организм.",
-];
+import profilesContent from "@/content/profiles.json";
 
-const RHYTHM_BY_ACTIVITY = [
-  "Начинаем мягко: три лёгких активных дня в неделю, остальное — отдых и наблюдение",
-  "Три-четыре активных дня с чередованием нагрузки и восстановления",
-  "Четыре-пять дней в привычном ритме плюс новые виды активности",
-  "Ежедневный ритм с акцентом на разнообразие и восстановление",
-];
-
-const TIME_SUFFIX = [
-  "до 15 минут в день.",
-  "по 15–30 минут в день.",
-  "по 30–60 минут в день.",
-  "по часу и больше — как вам комфортно.",
-];
-
-const FIRST_TASK_BY_SUPPORT = [
-  "Вечером наставник пришлёт первый список из трёх маленьких задач на завтра.",
-  "Выполните первую задачу дня — и откроете стартовую серию баллов.",
-  "Завтра утром наставник сам напишет и спросит, как дела. Просто ответьте честно.",
-  "Начните с короткого разбора: что в вашем режиме уже работает, а что мешает.",
-];
-
-export type Plan = {
-  focus: string;
-  rhythm: string;
-  firstTask: string;
+export type Profile = {
+  id: string;
+  name: string;
+  description: string;
+  steps: string[];
 };
 
-// Заглушка личного плана: простая таблица соответствий по ответам,
-// никакая модель здесь не вызывается.
-export function buildPlan(answers: Answers): Plan {
-  const [goal, activity, , support, time] = answers.map((a) => a ?? 0);
-  return {
-    focus: FOCUS_BY_GOAL[goal],
-    rhythm: `${RHYTHM_BY_ACTIVITY[activity]}, ${TIME_SUFFIX[time]}`,
-    firstTask: FIRST_TASK_BY_SUPPORT[support],
-  };
+export const RESULT_DISCLAIMER = profilesContent.disclaimer;
+
+// Черновое правило сопоставления: профиль определяется ответом
+// на первый вопрос (цель). Финальные правила задаёт продукт.
+export function getProfile(answers: Answers): Profile {
+  return profilesContent.profiles[answers[0] ?? 0];
 }
